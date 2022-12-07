@@ -29,5 +29,5 @@ add_library_unity(
   query_result.cpp
   stream_query_result.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_main>
-    PARENT_SCOPE)
+  ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_main>
+  PARENT_SCOPE)

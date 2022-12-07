@@ -177,7 +177,7 @@ static int8_t TemplatedCompareValue(Vector &left_vec, Vector &right_vec, idx_t l
 }
 
 // return type here is int32 because strcmp() on some platforms returns rather large values
-static int32_t CompareValue(Vector &left_vec, Vector &right_vec, idx_t vector_idx_left, idx_t vector_idx_right,
+int32_t ChunkCollection::CompareValue(Vector &left_vec, Vector &right_vec, idx_t vector_idx_left, idx_t vector_idx_right,
                             OrderByNullType null_order) {
 	auto left_null = FlatVector::IsNull(left_vec, vector_idx_left);
 	auto right_null = FlatVector::IsNull(right_vec, vector_idx_right);
@@ -245,7 +245,7 @@ static int CompareTuple(ChunkCollection *sort_by, vector<OrderType> &desc, vecto
 		D_ASSERT(right_vec.GetVectorType() == VectorType::FLAT_VECTOR);
 		D_ASSERT(left_vec.GetType() == right_vec.GetType());
 
-		auto comp_res = CompareValue(left_vec, right_vec, vector_idx_left, vector_idx_right, null_order[col_idx]);
+		auto comp_res = ChunkCollection::CompareValue(left_vec, right_vec, vector_idx_left, vector_idx_right, null_order[col_idx]);
 
 		if (comp_res == 0) {
 			continue;

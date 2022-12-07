@@ -357,7 +357,7 @@ void RowGroup::TemplatedScan(Transaction *transaction, RowGroupScanState &state,
 			}
 			//! first, we scan the columns with filters, fetch their data and generate a selection vector.
 			//! get runtime statistics
-			auto start_time = high_resolution_clock::now();
+			auto start_time = system_clock::now();
 			if (table_filters) {
 				D_ASSERT(ALLOW_UPDATES);
 				for (idx_t i = 0; i < table_filters->filters.size(); i++) {
@@ -413,7 +413,7 @@ void RowGroup::TemplatedScan(Transaction *transaction, RowGroupScanState &state,
 					}
 				}
 			}
-			auto end_time = high_resolution_clock::now();
+			auto end_time = system_clock::now();
 			if (adaptive_filter && table_filters->filters.size() > 1) {
 				adaptive_filter->AdaptRuntimeStatistics(duration_cast<duration<double>>(end_time - start_time).count());
 			}

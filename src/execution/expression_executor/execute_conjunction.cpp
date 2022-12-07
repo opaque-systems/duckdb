@@ -60,7 +60,7 @@ idx_t ExpressionExecutor::Select(const BoundConjunctionExpression &expr, Express
 
 	if (expr.type == ExpressionType::CONJUNCTION_AND) {
 		// get runtime statistics
-		auto start_time = high_resolution_clock::now();
+		auto start_time = system_clock::now();
 
 		const SelectionVector *current_sel = sel;
 		idx_t current_count = count;
@@ -98,12 +98,12 @@ idx_t ExpressionExecutor::Select(const BoundConjunctionExpression &expr, Express
 		}
 
 		// adapt runtime statistics
-		auto end_time = high_resolution_clock::now();
+		auto end_time = system_clock::now();
 		state->adaptive_filter->AdaptRuntimeStatistics(duration_cast<duration<double>>(end_time - start_time).count());
 		return current_count;
 	} else {
 		// get runtime statistics
-		auto start_time = high_resolution_clock::now();
+		auto start_time = system_clock::now();
 
 		const SelectionVector *current_sel = sel;
 		idx_t current_count = count;
@@ -135,7 +135,7 @@ idx_t ExpressionExecutor::Select(const BoundConjunctionExpression &expr, Express
 		}
 
 		// adapt runtime statistics
-		auto end_time = high_resolution_clock::now();
+		auto end_time = system_clock::now();
 		state->adaptive_filter->AdaptRuntimeStatistics(duration_cast<duration<double>>(end_time - start_time).count());
 		return result_count;
 	}

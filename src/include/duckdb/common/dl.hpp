@@ -39,7 +39,9 @@ std::string GetDLError(void) {
 #else
 
 std::string GetDLError(void) {
-	return dlerror();
+	throw std::runtime_error("FUNCTION NOT SUPPORTED BY OE");
+	// return dlerror();
+	return "";
 }
 
 #endif

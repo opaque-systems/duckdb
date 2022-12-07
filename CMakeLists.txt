@@ -14,12 +14,16 @@ endif()
 
 project(DuckDB)
 
-find_package(Threads REQUIRED)
+# find_package(Threads REQUIRED)
 
+# As part of https://github.com/opaque-systems/duckdb/pull/8
+# we had to inline some variables for proper linking,
+# and `inline` is a keyword introduced in C++17.
+# See https://github.com/duckdb/duckdb/issues/4531
 if (CMAKE_VERSION VERSION_LESS "3.1")
-    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 else ()
-  set (CMAKE_CXX_STANDARD 11)
+  set (CMAKE_CXX_STANDARD 17)
 endif ()
 
 
@@ -30,14 +34,33 @@ set(CMAKE_VERBOSE_MAKEFILE OFF)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_MACOSX_RPATH 1)
 
+# Opaque settings
+add_compile_definitions(DUCKDB_NO_THREADS=1 DISABLE_DUCKDB_REMOTE_INSTALL=1)
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+  add_compile_definitions(DUCKDB_USE_STANDARD_ASSERT=1)
+endif()
+
+# ccache options
 find_program(CCACHE_PROGRAM ccache)
 if(CCACHE_PROGRAM)
-  set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
+if(NOT DEFINED ENV{OPAQUE_CCACHE_ACCESS_KEY})
+message(WARNING "ccache found, but network cache access key not set. Please set the OPAQUE_CCACHE_ACCESS_KEY environment variable.")
+endif()
+set(C_LAUNCHER "${CCACHE_PROGRAM}")
+set(CXX_LAUNCHER "${CCACHE_PROGRAM}")
+message(STATUS "Found launcher ${CXX_LAUNCHER}")
+add_compile_options("-fdebug-prefix-map=$PWD=.") # enables useful caching for debug builds
+# The .in files are template files for ccache launchers.
+# CMake populates them with the correct cmake command, and they
+# use the appropriate environment variable to allow ccache to
+# communicate with the redis cache.
+configure_file("${CMAKE_CURRENT_LIST_DIR}/scripts/launch-c.in" "${CMAKE_CURRENT_BINARY_DIR}/launch-c" FILE_PERMISSIONS OWNER_EXECUTE OWNER_READ OWNER_WRITE GROUP_READ GROUP_EXECUTE WORLD_EXECUTE WORLD_READ)
+configure_file("${CMAKE_CURRENT_LIST_DIR}/scripts/launch-cxx.in" "${CMAKE_CURRENT_BINARY_DIR}/launch-cxx" FILE_PERMISSIONS OWNER_EXECUTE OWNER_READ OWNER_WRITE GROUP_READ GROUP_EXECUTE WORLD_EXECUTE WORLD_READ)
+# Set the custom launchers (ccache + settings) for C and C++ compilers
+set(CMAKE_C_COMPILER_LAUNCHER "${CMAKE_CURRENT_BINARY_DIR}/launch-c")
+set(CMAKE_CXX_COMPILER_LAUNCHER "${CMAKE_CURRENT_BINARY_DIR}/launch-cxx")
 else()
-  find_program(CCACHE_PROGRAM sccache)
-  if(CCACHE_PROGRAM)
-    set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
-  endif()
+message(WARNING "ccache not found: build times will not benefit from caching.")
 endif()
 
 # Determine install paths
@@ -58,7 +81,7 @@ endif()
 set(INSTALL_CMAKE_DIR
     ${DEF_INSTALL_CMAKE_DIR}
     CACHE PATH "Installation directory for CMake files")
-set(DUCKDB_EXPORT_SET "DuckDBExports")
+# set(DUCKDB_EXPORT_SET "DuckDBExports")
 
 # Make relative install paths absolute
 foreach(p LIB BIN INCLUDE CMAKE)
@@ -77,7 +100,7 @@ if (EXTENSION_STATIC_BUILD AND "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
   endif()
 endif()
 
-option(DISABLE_UNITY "Disable unity builds." FALSE)
+option(DISABLE_UNITY "Disable unity builds." TRUE)
 
 option(FORCE_COLORED_OUTPUT
        "Always produce ANSI-colored output (GNU/Clang only)." FALSE)
@@ -235,7 +258,7 @@ option(BUILD_MAIN_DUCKDB_LIBRARY
         TRUE)
 option(EXTENSION_STATIC_BUILD
         "Extension build linking statically with DuckDB. Required for building linux loadable extensions."
-        FALSE)
+        TRUE)
 
 option(BUILD_ICU_EXTENSION "Build the ICU extension." FALSE)
 option(BUILD_PARQUET_EXTENSION "Build the Parquet extension." FALSE)
@@ -258,10 +281,10 @@ option(USER_SPACE "Build the DuckDB Python in the user space" FALSE)
 option(FORCE_QUERY_LOG "If enabled, all queries will be logged to the specified path" OFF)
 
 option(BUILD_REST "Build the DuckDB REST server" FALSE)
-option(BUILD_SHELL "Build the DuckDB Shell and SQLite API Wrappers" TRUE)
-option(DISABLE_THREADS "Disable support for multi-threading" FALSE)
+option(BUILD_SHELL "Build the DuckDB Shell and SQLite API Wrappers" FALSE)
+option(DISABLE_THREADS "Disable support for multi-threading" TRUE)
 option(CLANG_TIDY "Enable build for clang-tidy, this disables all source files excluding the core database. This does not produce a working build." FALSE)
-option(BUILD_UNITTESTS "Build the C++ Unit Tests." TRUE)
+option(BUILD_UNITTESTS "Build the C++ Unit Tests." FALSE)
 option(
   ASSERT_EXCEPTION
   "Throw an exception on an assert failing, instead of triggering a sigabort"
@@ -648,10 +671,10 @@ endfunction()
 
 function(link_threads LIBRARY)
   if (CMAKE_VERSION VERSION_LESS "3.1")
-    target_link_libraries(${LIBRARY} pthread)
+    # target_link_libraries(${LIBRARY} pthread)
 
   else()
-    target_link_libraries(${LIBRARY} Threads::Threads)
+    # target_link_libraries(${LIBRARY} Threads::Threads)
   endif()
 endfunction()
 
@@ -769,9 +792,9 @@ endif()
 
 if (CMAKE_VERSION VERSION_GREATER "3.0") # this does not work with 2.8
 # Write the export set for build and install tree
-install(EXPORT "${DUCKDB_EXPORT_SET}" DESTINATION "${INSTALL_CMAKE_DIR}")
-export(EXPORT "${DUCKDB_EXPORT_SET}"
-       FILE "${PROJECT_BINARY_DIR}/${DUCKDB_EXPORT_SET}.cmake")
+# install(EXPORT "${DUCKDB_EXPORT_SET}" DESTINATION "${INSTALL_CMAKE_DIR}")
+# export(EXPORT "${DUCKDB_EXPORT_SET}"
+#        FILE "${PROJECT_BINARY_DIR}/${DUCKDB_EXPORT_SET}.cmake")
 
 # Only write the cmake package configuration if the templates exist
 set(CMAKE_CONFIG_TEMPLATE "${CMAKE_SOURCE_DIR}/DuckDBConfig.cmake.in")

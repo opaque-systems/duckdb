@@ -15000,7 +15000,7 @@ static const uint64_t nanosecondsInSecond = 1000000000;
 namespace Catch {
 
     auto getCurrentNanosecondsSinceEpoch() -> uint64_t {
-        return std::chrono::duration_cast<std::chrono::nanoseconds>( std::chrono::high_resolution_clock::now().time_since_epoch() ).count();
+        return std::chrono::duration_cast<std::chrono::nanoseconds>( std::chrono::system_clock::now().time_since_epoch() ).count();
     }
 
     namespace {
