@@ -14,6 +14,14 @@ endif()
 
 project(DuckDB)
 
+set(OE_MIN_VERSION 0.17.1)
+find_package(OpenEnclave ${OE_MIN_VERSION} CONFIG REQUIRED)
+
+include_directories(${OE_INCLUDEDIR}/openenclave/3rdparty)
+
+link_libraries(openenclave::oeenclave openenclave::oecrypto${OE_CRYPTO_LIB}
+               openenclave::oelibc openenclave::oelibcxx openenclave::oecore)
+
 # find_package(Threads REQUIRED)
 
 # As part of https://github.com/opaque-systems/duckdb/pull/8
