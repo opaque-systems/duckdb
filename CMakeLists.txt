@@ -20,7 +20,10 @@ if (LINK_OE)
   set(OE_MIN_VERSION 0.17.1)
   find_package(OpenEnclave ${OE_MIN_VERSION} CONFIG REQUIRED)
 
-  link_libraries(openenclave::oelibc openenclave::oelibcxx)
+  link_libraries(openenclave::oeenclave 
+      openenclave::oecore 
+      openenclave::oelibc 
+      openenclave::oelibcxx)
 endif()
 
 # find_package(Threads REQUIRED)
