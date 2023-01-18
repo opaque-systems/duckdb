@@ -68,6 +68,8 @@ else()
       set(OE_MIN_VERSION 0.17.1)
       find_package(OpenEnclave ${OE_MIN_VERSION} CONFIG REQUIRED)
 
+      message("IN THIS CALL IN THIS BRANCH PLEASE PRINT ME")
+
       list(APPEND DUCKDB_LINK_LIBS openenclave::oelibc openenclave::oelibcxx)
     endif()
 
