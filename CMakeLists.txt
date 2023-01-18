@@ -15,17 +15,17 @@ endif()
 project(DuckDB)
 
 if (LINK_OE)
-  message("Linking DuckDB against OE-provided stdlib...")
+  message("Linking DuckDB against OE-provided standard libraries...")
 
   set(OE_MIN_VERSION 0.17.1)
   find_package(OpenEnclave ${OE_MIN_VERSION} CONFIG REQUIRED)
 
   add_compile_definitions(OE_API_VERSION=2 FMT_USE_INT128=0)
 
-  link_libraries(openenclave::oeenclave 
-      openenclave::oecore 
-      openenclave::oelibc 
-      openenclave::oelibcxx)
+  # Use OE's libc and libcxx.
+  # The public linker flags of these libraries should add
+  # nostdinc and nostdinc++ flags to all following compile targets.
+  link_libraries(openenclave::oelibc openenclave::oelibcxx)
 endif()
 
 # find_package(Threads REQUIRED)
