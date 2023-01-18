@@ -20,7 +20,7 @@ if (LINK_OE)
   set(OE_MIN_VERSION 0.17.1)
   find_package(OpenEnclave ${OE_MIN_VERSION} CONFIG REQUIRED)
 
-  add_compile_definitions(FMT_USE_INT128=0)
+  add_compile_definitions(OE_API_VERSION=2 FMT_USE_INT128=0)
 
   link_libraries(openenclave::oeenclave 
       openenclave::oecore 
