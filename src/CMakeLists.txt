@@ -62,6 +62,11 @@ else()
       duckdb_miniz
       duckdb_utf8proc
       duckdb_hyperloglog
+      openenclave::oeenclave
+          fopenenclave::oecryptombedtls
+          openenclave::oelibc
+          openenclave::oelibcxx
+          openenclave::oecore
       duckdb_fastpforlib)
 
     if (LINK_OE)
@@ -70,12 +75,6 @@ else()
 
       message("IN THIS CALL IN THIS BRANCH PLEASE PRINT ME")
 
-      list(APPEND DUCKDB_LINK_LIBS
-          openenclave::oeenclave
-          fopenenclave::oecryptombedtls
-          openenclave::oelibc
-          openenclave::oelibcxx
-          openenclave::oecore)
     endif()
 
     #  add_library(duckdb SHARED ${ALL_OBJECT_FILES})
