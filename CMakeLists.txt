@@ -14,6 +14,15 @@ endif()
 
 project(DuckDB)
 
+if (LINK_OE)
+  message("Linking DuckDB against OE-provided stdlib...")
+
+  set(OE_MIN_VERSION 0.17.1)
+  find_package(OpenEnclave ${OE_MIN_VERSION} CONFIG REQUIRED)
+
+  link_libraries(openenclave::oelibc openenclave::oelibcxx)
+endif()
+
 # find_package(Threads REQUIRED)
 
 # As part of https://github.com/opaque-systems/duckdb/pull/8

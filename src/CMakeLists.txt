@@ -64,18 +64,7 @@ else()
       duckdb_hyperloglog
       duckdb_fastpforlib)
 
-    if (LINK_OE)
-      message("Linking DuckDB against OE-provided stdlib...")
-
-      set(OE_MIN_VERSION 0.17.1)
-      find_package(OpenEnclave ${OE_MIN_VERSION} CONFIG REQUIRED)
-
-      list(APPEND DUCKDB_LINK_LIBS
-          openenclave::oelibc
-          openenclave::oelibcxx)
-    endif()
-
-    #  add_library(duckdb SHARED ${ALL_OBJECT_FILES})
+    # add_library(duckdb SHARED ${ALL_OBJECT_FILES})
     # target_link_libraries(duckdb ${DUCKDB_LINK_LIBS})
     # link_threads(duckdb)
     # link_extension_libraries(duckdb)
