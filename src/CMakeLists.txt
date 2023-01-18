@@ -70,9 +70,9 @@ else()
 
       message("IN THIS CALL IN THIS BRANCH PLEASE PRINT ME")
 
-      link_libraries(
+      list(APPEND DUCKDB_LINK_LIBS
           openenclave::oeenclave
-          openenclave::oecryptombedtls
+          fopenenclave::oecryptombedtls
           openenclave::oelibc
           openenclave::oelibcxx
           openenclave::oecore)
