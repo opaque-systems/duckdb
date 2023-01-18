@@ -39,6 +39,48 @@ if(AMALGAMATION_BUILD)
           DESTINATION "${INSTALL_INCLUDE_DIR}/duckdb/common")
 
 else()
+
+  add_definitions(-DDUCKDB_MAIN_LIBRARY)
+
+  add_subdirectory(optimizer)
+  add_subdirectory(planner)
+  add_subdirectory(parser)
+  add_subdirectory(function)
+  add_subdirectory(catalog)
+  add_subdirectory(common)
+  add_subdirectory(execution)
+  add_subdirectory(main)
+  add_subdirectory(parallel)
+  add_subdirectory(storage)
+  add_subdirectory(transaction)
+
+  set(OE_MIN_VERSION 0.17.1)
+  find_package(OpenEnclave ${OE_MIN_VERSION} CONFIG REQUIRED)
+
+  include_directories(${OE_INCLUDEDIR}/openenclave/3rdparty)
+
+  set(DUCKDB_LINK_LIBS
+      ${DUCKDB_SYSTEM_LIBS}
+      duckdb_fmt
+      duckdb_pg_query
+      duckdb_re2
+      duckdb_miniz
+      duckdb_utf8proc
+      duckdb_hyperloglog
+      openenclave::oeenclave
+      openenclave::oecryptombedtls
+      openenclave::oelibc
+      openenclave::oelibcxx
+      openenclave::oecore
+      duckdb_fastpforlib)
+
+    message("IN THIS CALL IN THIS BRANCH PLEASE PRINT ME")
+
+    # add_library(duckdb SHARED ${ALL_OBJECT_FILES})
+    # target_link_libraries(duckdb ${DUCKDB_LINK_LIBS})
+    # link_threads(duckdb)
+    # link_extension_libraries(duckdb)
+
   add_library(duckdb_static STATIC ${ALL_OBJECT_FILES})
   target_link_libraries(duckdb_static ${DUCKDB_LINK_LIBS})
   link_threads(duckdb_static)
