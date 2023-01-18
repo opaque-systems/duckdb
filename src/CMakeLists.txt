@@ -70,7 +70,12 @@ else()
 
       message("IN THIS CALL IN THIS BRANCH PLEASE PRINT ME")
 
-      list(APPEND DUCKDB_LINK_LIBS openenclave::oelibc openenclave::oelibcxx)
+      list(APPEND DUCKDB_LINK_LIBS
+          openenclave::oeenclave
+          openenclave::oecryptombedtls
+          openenclave::oelibc
+          openenclave::oelibcxx
+          openenclave::oecore)
     endif()
 
     #  add_library(duckdb SHARED ${ALL_OBJECT_FILES})
