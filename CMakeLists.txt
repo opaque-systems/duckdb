@@ -19,7 +19,7 @@ find_package(OpenEnclave ${OE_MIN_VERSION} CONFIG REQUIRED)
 
 include_directories(${OE_INCLUDEDIR}/openenclave/3rdparty)
 
-link_libraries(openenclave::oeenclave openenclave::oecrypto${OE_CRYPTO_LIB}
+link_libraries(openenclave::oeenclave openenclave::oecryptombedtls
                openenclave::oelibc openenclave::oelibcxx openenclave::oecore)
 
 # find_package(Threads REQUIRED)
