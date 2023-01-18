@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# set basedir to the folder containing the repo
+export CCACHE_BASEDIR="$(git rev-parse --show-toplevel)/.."
+# set config path to the Opaque ccache config
+export CCACHE_CONFIGPATH="$(git rev-parse --show-toplevel)/ccache.conf"
+# set redis url (contains access key)
+export CCACHE_SECONDARY_STORAGE="redis://$OPAQUE_CCACHE_ACCESS_KEY@opaque-buildcache.redis.cache.windows.net"
+exec "/usr/local/bin/ccache" "$@"

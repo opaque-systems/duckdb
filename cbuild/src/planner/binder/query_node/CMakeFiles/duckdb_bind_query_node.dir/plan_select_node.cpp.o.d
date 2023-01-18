@@ -1,0 +1,435 @@
+src/planner/binder/query_node/CMakeFiles/duckdb_bind_query_node.dir/plan_select_node.cpp.o: \
+ ../../../../../src/planner/binder/query_node/plan_select_node.cpp \
+ /usr/include/stdc-predef.h \
+ ../../../../../src/include/duckdb/planner/binder.hpp \
+ ../../../../../src/include/duckdb/common/unordered_map.hpp \
+ /usr/include/c++/9/unordered_map /usr/include/c++/9/type_traits \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
+ /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/bits/long-double.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/cpu_defines.h \
+ /usr/include/c++/9/pstl/pstl_config.h \
+ /usr/include/c++/9/initializer_list /usr/include/c++/9/bits/allocator.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/c++allocator.h \
+ /usr/include/c++/9/ext/new_allocator.h /usr/include/c++/9/new \
+ /usr/include/c++/9/exception /usr/include/c++/9/bits/exception.h \
+ /usr/include/c++/9/bits/exception_ptr.h \
+ /usr/include/c++/9/bits/exception_defines.h \
+ /usr/include/c++/9/bits/cxxabi_init_exception.h \
+ /usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h \
+ /usr/include/c++/9/typeinfo /usr/include/c++/9/bits/hash_bytes.h \
+ /usr/include/c++/9/bits/nested_exception.h \
+ /usr/include/c++/9/bits/move.h /usr/include/c++/9/bits/concept_check.h \
+ /usr/include/c++/9/bits/functexcept.h \
+ /usr/include/c++/9/bits/memoryfwd.h \
+ /usr/include/c++/9/ext/alloc_traits.h \
+ /usr/include/c++/9/bits/alloc_traits.h \
+ /usr/include/c++/9/bits/ptr_traits.h \
+ /usr/include/c++/9/ext/numeric_traits.h \
+ /usr/include/c++/9/bits/cpp_type_traits.h \
+ /usr/include/c++/9/ext/type_traits.h \
+ /usr/include/c++/9/ext/aligned_buffer.h \
+ /usr/include/c++/9/bits/stl_pair.h \
+ /usr/include/c++/9/bits/stl_function.h \
+ /usr/include/c++/9/backward/binders.h \
+ /usr/include/c++/9/bits/functional_hash.h \
+ /usr/include/c++/9/bits/hashtable.h \
+ /usr/include/c++/9/bits/hashtable_policy.h /usr/include/c++/9/tuple \
+ /usr/include/c++/9/utility /usr/include/c++/9/bits/stl_relops.h \
+ /usr/include/c++/9/array /usr/include/c++/9/stdexcept \
+ /usr/include/c++/9/string /usr/include/c++/9/bits/stringfwd.h \
+ /usr/include/c++/9/bits/char_traits.h \
+ /usr/include/c++/9/bits/stl_algobase.h \
+ /usr/include/c++/9/bits/stl_iterator_base_types.h \
+ /usr/include/c++/9/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/9/debug/assertions.h \
+ /usr/include/c++/9/bits/stl_iterator.h /usr/include/c++/9/debug/debug.h \
+ /usr/include/c++/9/bits/predefined_ops.h \
+ /usr/include/c++/9/bits/postypes.h /usr/include/c++/9/cwchar \
+ /usr/include/wchar.h \
+ /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
+ /usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar2.h /usr/include/c++/9/cstdint \
+ /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h /usr/include/stdint.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/timesize.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+ /usr/include/x86_64-linux-gnu/bits/time64.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+ /usr/include/c++/9/bits/localefwd.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/c++locale.h \
+ /usr/include/c++/9/clocale /usr/include/locale.h \
+ /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/9/iosfwd \
+ /usr/include/c++/9/cctype /usr/include/ctype.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endianness.h \
+ /usr/include/c++/9/bits/ostream_insert.h \
+ /usr/include/c++/9/bits/cxxabi_forced.h \
+ /usr/include/c++/9/bits/range_access.h \
+ /usr/include/c++/9/bits/basic_string.h \
+ /usr/include/c++/9/ext/atomicity.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/gthr.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
+ /usr/include/x86_64-linux-gnu/bits/cpu-set.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
+ /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+ /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/timer_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+ /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
+ /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
+ /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/atomic_word.h \
+ /usr/include/c++/9/string_view /usr/include/c++/9/limits \
+ /usr/include/c++/9/bits/string_view.tcc \
+ /usr/include/c++/9/ext/string_conversions.h /usr/include/c++/9/cstdlib \
+ /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
+ /usr/include/x86_64-linux-gnu/bits/select2.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib.h \
+ /usr/include/c++/9/bits/std_abs.h /usr/include/c++/9/cstdio \
+ /usr/include/stdio.h /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio2.h /usr/include/c++/9/cerrno \
+ /usr/include/errno.h /usr/include/x86_64-linux-gnu/bits/errno.h \
+ /usr/include/linux/errno.h /usr/include/x86_64-linux-gnu/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+ /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
+ /usr/include/c++/9/bits/basic_string.tcc \
+ /usr/include/c++/9/bits/uses_allocator.h \
+ /usr/include/c++/9/bits/invoke.h /usr/include/c++/9/bits/node_handle.h \
+ /usr/include/c++/9/optional \
+ /usr/include/c++/9/bits/enable_special_members.h \
+ /usr/include/c++/9/bits/unordered_map.h \
+ /usr/include/c++/9/bits/erase_if.h \
+ ../../../../../src/include/duckdb/parser/column_definition.hpp \
+ ../../../../../src/include/duckdb/common/common.hpp \
+ ../../../../../src/include/duckdb/common/constants.hpp \
+ /usr/include/c++/9/memory /usr/include/c++/9/bits/stl_construct.h \
+ /usr/include/c++/9/bits/stl_uninitialized.h \
+ /usr/include/c++/9/bits/stl_tempbuf.h \
+ /usr/include/c++/9/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/9/ext/concurrence.h \
+ /usr/include/c++/9/bits/unique_ptr.h \
+ /usr/include/c++/9/bits/shared_ptr.h \
+ /usr/include/c++/9/bits/shared_ptr_base.h \
+ /usr/include/c++/9/bits/allocated_ptr.h \
+ /usr/include/c++/9/bits/refwrap.h \
+ /usr/include/c++/9/bits/shared_ptr_atomic.h \
+ /usr/include/c++/9/bits/atomic_base.h \
+ /usr/include/c++/9/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/9/backward/auto_ptr.h \
+ /usr/include/c++/9/pstl/glue_memory_defs.h \
+ /usr/include/c++/9/pstl/execution_defs.h \
+ ../../../../../src/include/duckdb/common/string.hpp \
+ /usr/include/c++/9/sstream /usr/include/c++/9/istream \
+ /usr/include/c++/9/ios /usr/include/c++/9/bits/ios_base.h \
+ /usr/include/c++/9/bits/locale_classes.h \
+ /usr/include/c++/9/bits/locale_classes.tcc \
+ /usr/include/c++/9/system_error \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/error_constants.h \
+ /usr/include/c++/9/streambuf /usr/include/c++/9/bits/streambuf.tcc \
+ /usr/include/c++/9/bits/basic_ios.h \
+ /usr/include/c++/9/bits/locale_facets.h /usr/include/c++/9/cwctype \
+ /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/ctype_base.h \
+ /usr/include/c++/9/bits/streambuf_iterator.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/ctype_inline.h \
+ /usr/include/c++/9/bits/locale_facets.tcc \
+ /usr/include/c++/9/bits/basic_ios.tcc /usr/include/c++/9/ostream \
+ /usr/include/c++/9/bits/ostream.tcc /usr/include/c++/9/bits/istream.tcc \
+ /usr/include/c++/9/bits/sstream.tcc \
+ ../../../../../src/include/duckdb/common/winapi.hpp \
+ ../../../../../src/include/duckdb/common/helper.hpp \
+ /usr/include/string.h /usr/include/strings.h \
+ /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+ /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
+ ../../../../../src/include/duckdb/common/types/value.hpp \
+ ../../../../../src/include/duckdb/common/exception.hpp \
+ ../../../../../src/include/duckdb/common/assert.hpp \
+ /usr/include/c++/9/iostream \
+ ../../../../../src/include/duckdb/common/exception_format_value.hpp \
+ ../../../../../src/include/duckdb/common/types.hpp \
+ ../../../../../src/include/duckdb/common/single_thread_ptr.hpp \
+ ../../../../../src/include/duckdb/common/vector.hpp \
+ /usr/include/c++/9/vector /usr/include/c++/9/bits/stl_vector.h \
+ /usr/include/c++/9/bits/stl_bvector.h /usr/include/c++/9/bits/vector.tcc \
+ ../../../../../src/include/duckdb/parser/parsed_expression.hpp \
+ ../../../../../src/include/duckdb/parser/base_expression.hpp \
+ ../../../../../src/include/duckdb/common/enums/expression_type.hpp \
+ ../../../../../src/include/duckdb/common/string_util.hpp \
+ ../../../../../src/include/duckdb/parser/qualified_name.hpp \
+ ../../../../../src/include/duckdb/parser/keyword_helper.hpp \
+ ../../../../../src/include/duckdb/parser/expression_util.hpp \
+ ../../../../../src/include/duckdb/common/enums/compression_type.hpp \
+ ../../../../../src/include/duckdb/catalog/catalog_entry/table_column_type.hpp \
+ ../../../../../src/include/duckdb/common/case_insensitive_map.hpp \
+ ../../../../../src/include/duckdb/common/unordered_set.hpp \
+ /usr/include/c++/9/unordered_set /usr/include/c++/9/bits/unordered_set.h \
+ ../../../../../src/include/duckdb/parser/tokens.hpp \
+ ../../../../../src/include/duckdb/planner/bind_context.hpp \
+ ../../../../../src/include/duckdb/catalog/catalog.hpp \
+ ../../../../../src/include/duckdb/catalog/catalog_entry.hpp \
+ ../../../../../src/include/duckdb/common/enums/catalog_type.hpp \
+ ../../../../../src/include/duckdb/common/atomic.hpp \
+ /usr/include/c++/9/atomic \
+ ../../../../../src/include/duckdb/common/mutex.hpp \
+ /usr/include/c++/9/mutex /usr/include/c++/9/chrono \
+ /usr/include/c++/9/ratio /usr/include/c++/9/ctime \
+ /usr/include/c++/9/bits/parse_numbers.h \
+ /usr/include/c++/9/bits/std_mutex.h \
+ /usr/include/c++/9/bits/unique_lock.h \
+ ../../../../../src/include/duckdb/parser/query_error_context.hpp \
+ /usr/include/c++/9/functional /usr/include/c++/9/bits/std_function.h \
+ /usr/include/c++/9/bits/stl_algo.h \
+ /usr/include/c++/9/bits/algorithmfwd.h \
+ /usr/include/c++/9/bits/stl_heap.h \
+ /usr/include/c++/9/bits/uniform_int_dist.h \
+ ../../../../../src/include/duckdb/catalog/catalog_entry/table_catalog_entry.hpp \
+ ../../../../../src/include/duckdb/catalog/standard_entry.hpp \
+ ../../../../../src/include/duckdb/parser/constraint.hpp \
+ ../../../../../src/include/duckdb/planner/bound_constraint.hpp \
+ ../../../../../src/include/duckdb/planner/expression.hpp \
+ ../../../../../src/include/duckdb/catalog/catalog_entry/column_dependency_manager.hpp \
+ ../../../../../src/include/duckdb/common/set.hpp /usr/include/c++/9/set \
+ /usr/include/c++/9/bits/stl_tree.h /usr/include/c++/9/bits/stl_set.h \
+ /usr/include/c++/9/bits/stl_multiset.h \
+ ../../../../../src/include/duckdb/common/stack.hpp \
+ /usr/include/c++/9/stack /usr/include/c++/9/deque \
+ /usr/include/c++/9/bits/stl_deque.h /usr/include/c++/9/bits/deque.tcc \
+ /usr/include/c++/9/bits/stl_stack.h \
+ ../../../../../src/include/duckdb/catalog/catalog_entry/table_function_catalog_entry.hpp \
+ ../../../../../src/include/duckdb/function/table_function.hpp \
+ ../../../../../src/include/duckdb/function/function.hpp \
+ ../../../../../src/include/duckdb/common/types/data_chunk.hpp \
+ ../../../../../src/include/duckdb/common/types/vector.hpp \
+ ../../../../../src/include/duckdb/common/bitset.hpp \
+ /usr/include/c++/9/bitset \
+ ../../../../../src/include/duckdb/common/enums/vector_type.hpp \
+ ../../../../../src/include/duckdb/common/types/selection_vector.hpp \
+ ../../../../../src/include/duckdb/common/vector_size.hpp \
+ ../../../../../src/include/duckdb/common/types/validity_mask.hpp \
+ ../../../../../src/include/duckdb/common/to_string.hpp \
+ ../../../../../src/include/duckdb/common/types/vector_buffer.hpp \
+ ../../../../../src/include/duckdb/common/types/string_heap.hpp \
+ ../../../../../src/include/duckdb/common/types/string_type.hpp \
+ /usr/include/c++/9/cstring \
+ ../../../../../src/include/duckdb/common/arrow_wrapper.hpp \
+ ../../../../../src/include/duckdb/common/arrow.hpp \
+ ../../../../../src/include/duckdb/common/named_parameter_map.hpp \
+ ../../../../../src/include/duckdb/storage/statistics/node_statistics.hpp \
+ ../../../../../src/include/duckdb/common/enums/operator_result_type.hpp \
+ ../../../../../src/include/duckdb/parser/expression/columnref_expression.hpp \
+ ../../../../../src/include/duckdb/parser/qualified_name_set.hpp \
+ ../../../../../src/include/duckdb/common/types/hash.hpp \
+ ../../../../../src/include/duckdb/planner/expression_binder.hpp \
+ ../../../../../src/include/duckdb/parser/expression/bound_expression.hpp \
+ ../../../../../src/include/duckdb/planner/table_binding.hpp \
+ ../../../../../src/include/duckdb/planner/bound_tokens.hpp \
+ ../../../../../src/include/duckdb/planner/expression/bound_columnref_expression.hpp \
+ ../../../../../src/include/duckdb/planner/column_binding.hpp \
+ ../../../../../src/include/duckdb/planner/logical_operator.hpp \
+ ../../../../../src/include/duckdb/common/enums/logical_operator_type.hpp \
+ ../../../../../src/include/duckdb/planner/logical_operator_visitor.hpp \
+ ../../../../../src/include/duckdb/planner/logical_tokens.hpp \
+ /usr/include/c++/9/algorithm \
+ /usr/include/c++/9/pstl/glue_algorithm_defs.h \
+ ../../../../../src/include/duckdb/planner/bound_statement.hpp \
+ ../../../../../src/include/duckdb/parser/result_modifier.hpp \
+ ../../../../../src/include/duckdb/common/enums/order_type.hpp \
+ ../../../../../src/include/duckdb/common/enums/statement_type.hpp \
+ ../../../../../src/include/duckdb/planner/expression/bound_reference_expression.hpp \
+ ../../../../../src/include/duckdb/planner/operator/list.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_aggregate.hpp \
+ ../../../../../src/include/duckdb/storage/statistics/base_statistics.hpp \
+ ../../../../../src/include/duckdb/common/operator/comparison_operators.hpp \
+ ../../../../../src/include/duckdb/common/types/hugeint.hpp \
+ ../../../../../src/include/duckdb/common/limits.hpp \
+ ../../../../../src/include/duckdb/common/types/interval.hpp \
+ ../../../../../src/include/duckdb/parser/group_by_node.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_any_join.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_join.hpp \
+ ../../../../../src/include/duckdb/common/enums/join_type.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_chunk_get.hpp \
+ ../../../../../src/include/duckdb/common/types/chunk_collection.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_comparison_join.hpp \
+ ../../../../../src/include/duckdb/planner/joinside.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_copy_to_file.hpp \
+ ../../../../../src/include/duckdb/function/copy_function.hpp \
+ ../../../../../src/include/duckdb/parser/parsed_data/copy_info.hpp \
+ ../../../../../src/include/duckdb/parser/parsed_data/parse_info.hpp \
+ ../../../../../src/include/duckdb/common/local_file_system.hpp \
+ ../../../../../src/include/duckdb/common/file_system.hpp \
+ ../../../../../src/include/duckdb/common/file_buffer.hpp \
+ ../../../../../src/include/duckdb/common/enums/file_compression_type.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_create.hpp \
+ ../../../../../src/include/duckdb/parser/parsed_data/create_info.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_create_index.hpp \
+ ../../../../../src/include/duckdb/parser/parsed_data/create_index_info.hpp \
+ ../../../../../src/include/duckdb/common/enums/index_type.hpp \
+ ../../../../../src/include/duckdb/parser/tableref/basetableref.hpp \
+ ../../../../../src/include/duckdb/parser/tableref.hpp \
+ ../../../../../src/include/duckdb/common/enums/tableref_type.hpp \
+ ../../../../../src/include/duckdb/parser/parsed_data/sample_options.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_create_table.hpp \
+ ../../../../../src/include/duckdb/planner/parsed_data/bound_create_table_info.hpp \
+ ../../../../../src/include/duckdb/parser/parsed_data/create_table_info.hpp \
+ ../../../../../src/include/duckdb/parser/statement/select_statement.hpp \
+ ../../../../../src/include/duckdb/parser/query_node.hpp \
+ ../../../../../src/include/duckdb/common/serializer.hpp \
+ ../../../../../src/include/duckdb/parser/common_table_expression_info.hpp \
+ ../../../../../src/include/duckdb/parser/sql_statement.hpp \
+ ../../../../../src/include/duckdb/common/printer.hpp \
+ ../../../../../src/include/duckdb/storage/table/persistent_table_data.hpp \
+ ../../../../../src/include/duckdb/storage/table/segment_tree.hpp \
+ ../../../../../src/include/duckdb/storage/storage_lock.hpp \
+ ../../../../../src/include/duckdb/storage/table/segment_base.hpp \
+ ../../../../../src/include/duckdb/storage/data_pointer.hpp \
+ ../../../../../src/include/duckdb/storage/storage_info.hpp \
+ ../../../../../src/include/duckdb/storage/block.hpp \
+ ../../../../../src/include/duckdb/storage/table/row_group.hpp \
+ ../../../../../src/include/duckdb/storage/table/chunk_info.hpp \
+ ../../../../../src/include/duckdb/storage/table/append_state.hpp \
+ ../../../../../src/include/duckdb/storage/buffer/buffer_handle.hpp \
+ ../../../../../src/include/duckdb/storage/table/scan_state.hpp \
+ ../../../../../src/include/duckdb/execution/adaptive_filter.hpp \
+ ../../../../../src/include/duckdb/planner/expression/list.hpp \
+ ../../../../../src/include/duckdb/planner/expression/bound_aggregate_expression.hpp \
+ ../../../../../src/include/duckdb/function/aggregate_function.hpp \
+ ../../../../../src/include/duckdb/common/vector_operations/aggregate_executor.hpp \
+ ../../../../../src/include/duckdb/common/vector_operations/vector_operations.hpp \
+ ../../../../../src/include/duckdb/planner/bound_result_modifier.hpp \
+ ../../../../../src/include/duckdb/planner/expression/bound_between_expression.hpp \
+ ../../../../../src/include/duckdb/planner/expression/bound_case_expression.hpp \
+ ../../../../../src/include/duckdb/planner/expression/bound_cast_expression.hpp \
+ ../../../../../src/include/duckdb/planner/expression/bound_comparison_expression.hpp \
+ ../../../../../src/include/duckdb/planner/expression/bound_conjunction_expression.hpp \
+ ../../../../../src/include/duckdb/planner/expression/bound_constant_expression.hpp \
+ ../../../../../src/include/duckdb/planner/expression/bound_default_expression.hpp \
+ ../../../../../src/include/duckdb/planner/expression/bound_function_expression.hpp \
+ ../../../../../src/include/duckdb/function/scalar_function.hpp \
+ ../../../../../src/include/duckdb/common/vector_operations/binary_executor.hpp \
+ ../../../../../src/include/duckdb/common/vector_operations/ternary_executor.hpp \
+ ../../../../../src/include/duckdb/common/vector_operations/unary_executor.hpp \
+ ../../../../../src/include/duckdb/execution/expression_executor_state.hpp \
+ ../../../../../src/include/duckdb/common/cycle_counter.hpp \
+ ../../../../../src/include/duckdb/common/chrono.hpp \
+ ../../../../../src/include/duckdb/planner/expression/bound_operator_expression.hpp \
+ ../../../../../src/include/duckdb/planner/expression/bound_parameter_expression.hpp \
+ ../../../../../src/include/duckdb/planner/expression/bound_subquery_expression.hpp \
+ ../../../../../src/include/duckdb/common/enums/subquery_type.hpp \
+ ../../../../../src/include/duckdb/planner/bound_query_node.hpp \
+ ../../../../../src/include/duckdb/planner/expression/bound_unnest_expression.hpp \
+ ../../../../../src/include/duckdb/planner/expression/bound_window_expression.hpp \
+ ../../../../../src/include/duckdb/parser/expression/window_expression.hpp \
+ /usr/include/c++/9/random /usr/include/c++/9/cmath /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+ /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+ /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+ /usr/include/x86_64-linux-gnu/bits/mathinline.h \
+ /usr/include/c++/9/bits/specfun.h /usr/include/c++/9/tr1/gamma.tcc \
+ /usr/include/c++/9/tr1/special_function_util.h \
+ /usr/include/c++/9/tr1/bessel_function.tcc \
+ /usr/include/c++/9/tr1/beta_function.tcc \
+ /usr/include/c++/9/tr1/ell_integral.tcc \
+ /usr/include/c++/9/tr1/exp_integral.tcc \
+ /usr/include/c++/9/tr1/hypergeometric.tcc \
+ /usr/include/c++/9/tr1/legendre_function.tcc \
+ /usr/include/c++/9/tr1/modified_bessel_func.tcc \
+ /usr/include/c++/9/tr1/poly_hermite.tcc \
+ /usr/include/c++/9/tr1/poly_laguerre.tcc \
+ /usr/include/c++/9/tr1/riemann_zeta.tcc /usr/include/c++/9/bits/random.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/opt_random.h \
+ /usr/include/c++/9/bits/random.tcc /usr/include/c++/9/numeric \
+ /usr/include/c++/9/bits/stl_numeric.h \
+ /usr/include/c++/9/pstl/glue_numeric_defs.h \
+ ../../../../../src/include/duckdb/storage/statistics/segment_statistics.hpp \
+ ../../../../../src/include/duckdb/common/enums/scan_options.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_cross_product.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_cteref.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_delete.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_delim_get.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_delim_join.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_distinct.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_dummy_scan.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_empty_result.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_execute.hpp \
+ ../../../../../src/include/duckdb/main/prepared_statement_data.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_explain.hpp \
+ ../../../../../src/include/duckdb/parser/statement/explain_statement.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_export.hpp \
+ ../../../../../src/include/duckdb/parser/parsed_data/exported_table_data.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_expression_get.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_filter.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_get.hpp \
+ ../../../../../src/include/duckdb/planner/table_filter.hpp \
+ ../../../../../src/include/duckdb/common/enums/filter_propagate_result.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_insert.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_limit.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_limit_percent.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_order.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_pragma.hpp \
+ ../../../../../src/include/duckdb/parser/parsed_data/pragma_info.hpp \
+ ../../../../../src/include/duckdb/function/pragma_function.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_prepare.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_projection.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_recursive_cte.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_sample.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_set.hpp \
+ ../../../../../src/include/duckdb/common/enums/set_scope.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_set_operation.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_show.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_simple.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_top_n.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_unnest.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_update.hpp \
+ ../../../../../src/include/duckdb/planner/operator/logical_window.hpp \
+ ../../../../../src/include/duckdb/planner/query_node/bound_select_node.hpp \
+ ../../../../../src/include/duckdb/parser/expression_map.hpp \
+ ../../../../../src/include/duckdb/planner/bound_tableref.hpp
