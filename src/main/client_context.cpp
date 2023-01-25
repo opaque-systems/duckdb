@@ -39,6 +39,7 @@
 namespace duckdb {
 
 struct ActiveQueryContext {
+  sfdsflksdf
 	//! The query that is currently being executed
 	string query;
 	//! The currently open result
