@@ -54,29 +54,6 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
   add_compile_definitions(DUCKDB_USE_STANDARD_ASSERT=1)
 endif()
 
-# ccache options
-find_program(CCACHE_PROGRAM ccache)
-if(CCACHE_PROGRAM)
-if(NOT DEFINED ENV{OPAQUE_CCACHE_ACCESS_KEY})
-message(WARNING "ccache found, but network cache access key not set. Please set the OPAQUE_CCACHE_ACCESS_KEY environment variable.")
-endif()
-set(C_LAUNCHER "${CCACHE_PROGRAM}")
-set(CXX_LAUNCHER "${CCACHE_PROGRAM}")
-message(STATUS "Found launcher ${CXX_LAUNCHER}")
-add_compile_options("-fdebug-prefix-map=$PWD=.") # enables useful caching for debug builds
-# The .in files are template files for ccache launchers.
-# CMake populates them with the correct cmake command, and they
-# use the appropriate environment variable to allow ccache to
-# communicate with the redis cache.
-configure_file("${CMAKE_CURRENT_LIST_DIR}/scripts/launch-c.in" "${CMAKE_CURRENT_BINARY_DIR}/launch-c" FILE_PERMISSIONS OWNER_EXECUTE OWNER_READ OWNER_WRITE GROUP_READ GROUP_EXECUTE WORLD_EXECUTE WORLD_READ)
-configure_file("${CMAKE_CURRENT_LIST_DIR}/scripts/launch-cxx.in" "${CMAKE_CURRENT_BINARY_DIR}/launch-cxx" FILE_PERMISSIONS OWNER_EXECUTE OWNER_READ OWNER_WRITE GROUP_READ GROUP_EXECUTE WORLD_EXECUTE WORLD_READ)
-# Set the custom launchers (ccache + settings) for C and C++ compilers
-set(CMAKE_C_COMPILER_LAUNCHER "${CMAKE_CURRENT_BINARY_DIR}/launch-c")
-set(CMAKE_CXX_COMPILER_LAUNCHER "${CMAKE_CURRENT_BINARY_DIR}/launch-cxx")
-else()
-message(WARNING "ccache not found: build times will not benefit from caching.")
-endif()
-
 # Determine install paths
 set(INSTALL_LIB_DIR
     lib
