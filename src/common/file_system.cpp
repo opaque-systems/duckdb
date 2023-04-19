@@ -73,7 +73,10 @@ void FileSystem::SetWorkingDirectory(const string &path) {
 
 idx_t FileSystem::GetAvailableMemory() {
 	errno = 0;
-	idx_t max_memory = MinValue<idx_t>((idx_t)sysconf(_SC_PHYS_PAGES) * (idx_t)sysconf(_SC_PAGESIZE), UINTPTR_MAX);
+	// In the Open Enclave libraries, sysconf is not supported, so we must default to UINTPTR_MAX
+	// If the FS goes out of memory, OE will throw it's own out of memory error
+	// idx_t max_memory = MinValue<idx_t>((idx_t)sysconf(_SC_PHYS_PAGES) * (idx_t)sysconf(_SC_PAGESIZE), UINTPTR_MAX);
+	idx_t max_memory = UINTPTR_MAX;
 	if (errno != 0) {
 		return DConstants::INVALID_INDEX;
 	}

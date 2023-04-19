@@ -15,7 +15,7 @@ if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
   set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wexit-time-destructors")
 endif()
 
-set(DUCKDB_SYSTEM_LIBS ${CMAKE_DL_LIBS})
+# set(DUCKDB_SYSTEM_LIBS ${CMAKE_DL_LIBS})
 
 if(MSVC OR MINGW)
   set(DUCKDB_SYSTEM_LIBS ${DUCKDB_SYSTEM_LIBS} ws2_32)
@@ -26,14 +26,9 @@ if(AMALGAMATION_BUILD)
     add_definitions(/bigobj)
   endif()
 
-  add_library(duckdb SHARED "${PROJECT_SOURCE_DIR}/src/amalgamation/duckdb.cpp")
-  target_link_libraries(duckdb ${DUCKDB_SYSTEM_LIBS})
-  link_threads(duckdb)
-  link_extension_libraries(duckdb)
-
   add_library(duckdb_static STATIC
-              "${PROJECT_SOURCE_DIR}/src/amalgamation/duckdb.cpp")
-  target_link_libraries(duckdb_static ${DUCKDB_SYSTEM_LIBS})
+    "${PROJECT_SOURCE_DIR}/src/amalgamation/duckdb.cpp")
+  # target_link_libraries(duckdb_static ${DUCKDB_SYSTEM_LIBS})
   link_threads(duckdb_static)
   link_extension_libraries(duckdb_static)
 
@@ -72,10 +67,10 @@ else()
       duckdb_fastpforlib
       duckdb_mbedtls)
 
-  add_library(duckdb SHARED ${ALL_OBJECT_FILES})
-  target_link_libraries(duckdb ${DUCKDB_LINK_LIBS})
-  link_threads(duckdb)
-  link_extension_libraries(duckdb)
+    # add_library(duckdb SHARED ${ALL_OBJECT_FILES})
+    # target_link_libraries(duckdb ${DUCKDB_LINK_LIBS})
+    # link_threads(duckdb)
+    # link_extension_libraries(duckdb)
 
   add_library(duckdb_static STATIC ${ALL_OBJECT_FILES})
   target_link_libraries(duckdb_static ${DUCKDB_LINK_LIBS})
@@ -83,12 +78,12 @@ else()
   link_extension_libraries(duckdb_static)
 
   target_include_directories(
-    duckdb PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-                  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
-
-  target_include_directories(
     duckdb_static PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-                         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+
+  set_target_properties(duckdb_static
+    PROPERTIES
+    POSITION_INDEPENDENT_CODE ON)
 
   install(
     DIRECTORY "${PROJECT_SOURCE_DIR}/src/include/duckdb"
@@ -183,7 +178,7 @@ if(BUILD_PYTHON
 endif()
 
 install(
-  TARGETS duckdb duckdb_static
+TARGETS duckdb_static
   EXPORT "${DUCKDB_EXPORT_SET}"
   LIBRARY DESTINATION "${INSTALL_LIB_DIR}"
   ARCHIVE DESTINATION "${INSTALL_LIB_DIR}"

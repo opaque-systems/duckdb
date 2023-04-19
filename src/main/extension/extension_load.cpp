@@ -15,11 +15,13 @@ typedef void (*ext_storage_init_t)(DBConfig &);
 
 template <class T>
 static T LoadFunctionFromDLL(void *dll, const string &function_name, const string &filename) {
-	auto function = dlsym(dll, function_name.c_str());
-	if (!function) {
-		throw IOException("File \"%s\" did not contain function \"%s\": %s", filename, function_name, GetDLError());
-	}
-	return (T)function;
+	throw std::runtime_error("FUNCTION NOT SUPPORTED BY OE");
+
+	// auto function = dlsym(dll, function_name.c_str());
+	// if (!function) {
+	// 	throw IOException("File \"%s\" did not contain function \"%s\": %s", filename, function_name, GetDLError());
+	// }
+	// return (T)function;
 }
 
 bool ExtensionHelper::TryInitialLoad(DBConfig &config, FileOpener *opener, const string &extension,

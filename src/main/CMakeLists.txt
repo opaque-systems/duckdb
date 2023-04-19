@@ -35,5 +35,5 @@ add_library_unity(
   stream_query_result.cpp
   valid_checker.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_main>
-    PARENT_SCOPE)
+  ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_main>
+  PARENT_SCOPE)

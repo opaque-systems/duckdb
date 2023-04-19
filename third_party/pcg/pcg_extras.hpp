@@ -45,10 +45,6 @@
 #include <locale>
 #include <iterator>
 
-#ifdef __GNUC__
-    #include <cxxabi.h>
-#endif
-
 /*
  * Abstractions for compiler-specific directives
  */
@@ -644,9 +640,8 @@ template <typename T>
 std::ostream& operator<<(std::ostream& out, printable_typename<T>) {
     const char *implementation_typename = typeid(T).name();
 #ifdef __GNUC__
-    int status;
-    char* pretty_name =
-        abi::__cxa_demangle(implementation_typename, nullptr, nullptr, &status);
+    int status = 1;
+    char* pretty_name = "Should not print this! At least until OE includes the ABI headers...";
     if (status == 0)
         out << pretty_name;
     free(static_cast<void*>(pretty_name));
