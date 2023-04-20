@@ -51,7 +51,8 @@ bool Printer::IsTerminal(OutputStream stream) {
 	auto stream_handle = stream == OutputStream::STREAM_STDERR ? STD_ERROR_HANDLE : STD_OUTPUT_HANDLE;
 	return GetFileType(GetStdHandle(stream_handle)) == FILE_TYPE_CHAR;
 #else
-	return isatty(stream == OutputStream::STREAM_STDERR ? 2 : 1);
+	// return isatty(stream == OutputStream::STREAM_STDERR ? 2 : 1);
+	return false; // Open Enclave doesn't support the isatty syscall, so default to non-terminal
 #endif
 #else
 	throw InternalException("IsTerminal called while printing is disabled");
